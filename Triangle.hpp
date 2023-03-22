@@ -1,5 +1,14 @@
-#include "xVertex.h"
+//
+//  Triangle.hpp
+//  tm4
+//
+//  Created by anirudh-pulavarthy on 3/20/23.
+//
+
 #include <ostream>
+#include "Vertex.hpp"
+
+typedef std::pair<Vertex, Vertex> Edge;
 
 class Triangle {
     public:
@@ -9,7 +18,7 @@ class Triangle {
 
     public:
     Triangle(int i1, int i2, int i3);
-    //int GetEdges();
+    bool hasEdge(Edge e);
 
     public:
     friend std::ostream& operator << (std::ostream& stream, const Triangle& obj);

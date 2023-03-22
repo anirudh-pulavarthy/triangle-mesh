@@ -1,20 +1,23 @@
+//
+//  Vertex.c
+//  tm4
+//
+//  Created by anirudh-pulavarthy on 3/20/23.
+//
+
 struct Vertex {
     int id; // an integer identifying the vertex
-
-    // Default constructor
-    Vertex() { id = 0; }
 
     // Vertex constructor
     Vertex(int i) { id = i; }
 
-    // Overloading equality operator
-    bool operator ==(const Vertex& right)
+    bool isEqual(const Vertex& right)
     {
         return id == right.id;
     }
 
     // Overloading inequality operator
-    bool operator !=(const Vertex& right)
+    bool isNotEqual(const Vertex& right)
     {
         return id != right.id;
     }
@@ -27,13 +30,13 @@ struct Vertex {
     }
 
     // Overloading < operator
-    bool operator <(const Vertex& right)
+    bool operator < (const Vertex& right)
     {
         return id < right.id;
     }
 
     // Overloading > operator
-    bool operator >(const Vertex& right)
+    bool isGreater (const Vertex& right)
     {
         return id > right.id;
     }

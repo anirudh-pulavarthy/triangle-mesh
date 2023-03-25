@@ -12,18 +12,24 @@
         (e1.first.isEqual(e2.first)) \
         && (e1.second.isEqual(e2.second))
 
-Triangle::Triangle(int i1, int i2, int i3) : v1(i1), v2(i2), v3(i3)
-{
-    //assert(v1 != v2);
-    //assert(v2 != v3);
-    //assert(v3 != v1);
+Triangle::Triangle(int ver[3]) : v1(0), v2(0), v3(0) {
+    init(ver[0], ver[1], ver[2]);
+}
 
-    if ( (v1.isEqual(v2))
-        || (v2.isEqual(v3))
-        || (v3.isEqual(v1)) )
+Triangle::Triangle(int i1, int i2, int i3) : v1(0), v2(0), v3(0)
+{
+    init(i1, i2, i3);
+}
+
+void Triangle::init(int i1, int i2, int i3) {
+    
+    if ( (i1 == i2)
+        || (i2 == i3)
+        || (i3 == i1) )
     {
-        std::cout << "Invalid vertices: (" << v1.id << ", "
-            << v2.id << ", " << v3.id << ")\n";
+        if ( i1 != 0 )
+            std::cout << "Invalid vertices: (" << i1 << ", "
+                << i2 << ", " << i3 << ")\n";
         return;
     }
 
@@ -65,6 +71,9 @@ bool Triangle::operator ==(const Triangle& right)
 
 std::ostream& operator <<(std::ostream& stream, const Triangle& obj)
 {
-    stream << "Triangle is " << obj.v1.id << obj.v2.id << obj.v3.id << "\n";
+    stream << "(" << obj.v1.id << ", "
+        << obj.v2.id << ", "
+        << obj.v3.id << ")";
+    
     return stream;
 }

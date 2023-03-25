@@ -5,39 +5,24 @@
 //  Created by anirudh-pulavarthy on 3/21/23.
 //
 
+// Assuming off file does not have any duplicate triangles
+
 #include <iostream>
 #include <fstream>
 #include "mesh.hpp"
 
 void Mesh::populate(const char *fileName) {
-    std::ifstream inputFile(fileName);
+    std::ifstream inputFile;
     inputFile.open(fileName);
 
-    if (!inputFile.is_open())
-        return;
-    
-    char* charLine;
-    std::string line;
-     int i1, i2, i3, i4, i5;
-    while ( !inputFile.eof() )
-    {
-        std::getline(inputFile, line);
-        //std::fgets(charLine, 500, inputFile);
-        //std::scanf(charLine, "%d %d %d", &i1, &i2, &i3);
-        //inputFile.getline(line, LINE_MAX);
-        //inputFile >> i1 >> i2 >> i3 >> i4 >> i5;
-        //if (i1 == i2 || i2 == i3 || i1 == i3)
-        //    continue;
-
-        data.push_back(Triangle(i1, i2, i3));
-    }
-     
-    if (inputFile.is_open())
-    {
-        while (std::getline(inputFile, line)) {
-            std::cout << line << std::endl;
-        }
+    if ( inputFile.is_open() ) {
+        int v[3];
+        while ( inputFile >> v[0] >> v[1] >> v[2] )
+            data.addTriangle(v);
+         
         inputFile.close();
     }
-    
+    else {
+        std::cout << "Error opening off file." << std::endl;
+    }
 }

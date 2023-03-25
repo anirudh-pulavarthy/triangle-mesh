@@ -18,6 +18,7 @@ class Triangle {
 
     public:
     Triangle(int i1, int i2, int i3);
+    Triangle(int v[3]);
     bool hasEdge(Edge e);
 
     public:
@@ -25,4 +26,7 @@ class Triangle {
 
     // Overloading equality operator
     bool operator ==(const Triangle& right);
+    
+private:
+    void init(int a1, int a2, int a3);
 };

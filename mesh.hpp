@@ -5,14 +5,19 @@
 //  Created by anirudh-pulavarthy on 3/21/23.
 //
 
+#ifndef mesh_hpp
+#define mesh_hpp
+
 #include <vector>
-#include "Triangle.hpp"
+#include "TraingleList.hpp"
 
 class Mesh {
 private:
-    std::vector<Triangle> data;
+    TriangleList data;
     
 public:
     void populate(const char* fileName);
-    bool findEdge(Edge e);
+    const TriangleList& getData() { return data; }
 };
+
+#endif /* mesh_hpp */

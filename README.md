@@ -3,7 +3,7 @@ This project can be used to process a triangular mesh described within input.off
 1. Edges adjacent to a Vertex
 2. Triangles adjacent to a Vertex
 3. Triangles adjacent to an Edge
-4. Compute two connected component of any Triangle
+4. Compute two connected component of the mesh containing a given Triangle
 
 ## Classes - Purpose(s)
 EdgeList - List of Edges<br />

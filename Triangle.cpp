@@ -22,6 +22,7 @@ Triangle::Triangle(int i1, int i2, int i3) : v1(0), v2(0), v3(0)
 }
 
 void Triangle::init(int i1, int i2, int i3) {
+    visited = false;
     
     if ( (i1 == i2)
         || (i2 == i3)
@@ -76,4 +77,18 @@ std::ostream& operator <<(std::ostream& stream, const Triangle& obj)
         << obj.v3.id << ")";
     
     return stream;
+}
+
+bool Triangle::contains(Vertex v) {
+    if ( v.isEqual(v1)
+        || v.isEqual(v2)
+        || v.isEqual(v3) )
+        return true;
+    return false;
+}
+
+void Triangle::findEdgesContaining(Vertex v, Vertex* others) {
+    if (v.isEqual(v1)) { *others = v2; *(others + 1) = v3; }
+    else if (v.isEqual(v2)) { *others = v1; *(others + 1) = v3; }
+    else if (v.isEqual(v3)) { *others = v1; *(others + 1) = v2; }
 }

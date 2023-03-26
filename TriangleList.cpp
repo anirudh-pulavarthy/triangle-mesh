@@ -6,7 +6,7 @@
 //
 
 #include <iostream>
-#include "TriangleList.hpp"
+#include "TraingleList.hpp"
 
 bool TriangleList::alreadyAdded(Triangle t) {
     if ( arrList.size() <= 1 )
@@ -45,4 +45,12 @@ Triangle TriangleList::get(int index) {
     }
     
     return arrList.at(index);
+}
+
+bool TriangleList::addTriangle(Triangle t) {
+    if (alreadyAdded(t))
+        return false;
+    
+    arrList.push_back(t);
+    return true;
 }

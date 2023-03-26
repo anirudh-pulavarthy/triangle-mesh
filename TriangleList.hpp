@@ -17,6 +17,7 @@ private:
     
 public:
     bool addTriangle(int vertices[3]);
+    bool addTriangle(Triangle t);
     std::vector<Triangle>::iterator begin() { return arrList.begin(); }
     std::vector<Triangle>::iterator end() { return arrList.end(); }
     Triangle get(int index);

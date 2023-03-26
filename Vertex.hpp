@@ -29,15 +29,22 @@ struct Vertex {
         return *this;
     }
 
-    // Overloading < operator
     bool operator < (const Vertex& right)
     {
         return id < right.id;
     }
 
-    // Overloading > operator
     bool isGreater (const Vertex& right)
     {
         return id > right.id;
+    }
+    
+    void swap(Vertex& right)
+    {
+        int id1 = id;
+        int id2 = right.id;
+        
+        right.id = id1;
+        id = id2;
     }
 };

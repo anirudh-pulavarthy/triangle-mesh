@@ -11,17 +11,20 @@
 #include <vector>
 #include "Triangle.hpp"
 
+typdef std::vector<Triangle> TriangleArray;
+
 class TriangleList {
 private:
-    std::vector<Triangle> arrList;
+    TriangleArray arrList;
     
 public:
     bool addTriangle(int vertices[3]);
     bool addTriangle(Triangle t);
-    std::vector<Triangle>::iterator begin() { return arrList.begin(); }
-    std::vector<Triangle>::iterator end() { return arrList.end(); }
+    TriangleArray::iterator begin() { return arrList.begin(); }
+    TriangleArray::iterator end() { return arrList.end(); }
     Triangle get(int index);
     int size() { return (int) arrList.size(); }
+    
 private:
     bool alreadyAdded(Triangle t);
 };

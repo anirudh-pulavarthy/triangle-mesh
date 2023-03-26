@@ -11,16 +11,19 @@
 #include <vector>
 #include "Triangle.hpp"
 
+typedef std::vector<Edge> EdgeArray;
+
 class EdgeList {
 private:
-    std::vector<Edge> arrList;
+    EdgeArray arrList;
     
 public:
     bool addEdge(Vertex v1, Vertex v2);
-    std::vector<Edge>::iterator begin() { return arrList.begin(); }
-    std::vector<Edge>::iterator end() { return arrList.end(); }
+    EdgeArray::iterator begin() { return arrList.begin(); }
+    EdgeArray::iterator end() { return arrList.end(); }
     Edge get(int index);
     int size() { return (int) arrList.size(); }
+    
 private:
     bool alreadyAdded(Edge t);
 };

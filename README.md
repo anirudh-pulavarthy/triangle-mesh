@@ -1,13 +1,18 @@
 # triangle-mesh
 Data structure to process a triangle mesh
 
+## Classes - Purpose(s)
+EdgeList - List of Edges<br />
+Mesh - contains Triangular Mesh structure and related APIs<br />
+Printer - Prints EdgeLists, TrianglesLists and Meshes<br />
+Triangle - Triangles, Edges and other related APIs<br />
+TriangleList - List of Triangles
+
 ## Source Files
 main.cpp = Executable main
-xOffParser.cpp = Parses .off file
 
 ## Headers
-xTriangle.h = Defines triangle
-xVertex.h = Defines a vertex (in this case, an integer)
+Vertex.h = Defines a vertex (in this case, an integer)
 
 ## Misc
 input.off = Sample input

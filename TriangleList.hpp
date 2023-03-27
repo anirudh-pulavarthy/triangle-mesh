@@ -23,6 +23,8 @@ public:
     TriangleArray::iterator begin() { return arrList.begin(); }
     TriangleArray::iterator end() { return arrList.end(); }
     Triangle get(int index);
+    bool getVisited(const Triangle& t);
+    void setVisited(const Triangle& t, bool val);
     int size() { return (int) arrList.size(); }
     
 private:

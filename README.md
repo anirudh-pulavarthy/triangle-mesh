@@ -13,10 +13,10 @@ Triangle - Triangles, Edges and other related APIs<br />
 TriangleList - List of Triangles
 
 ## Source Files
-main.cpp = Executable main
+main.cpp - Executable main
 
 ## Headers
-Vertex.h = Defines a vertex (in this case, an integer)
+Vertex.h - Defines a vertex (in this case, an integer)
 
 ## Misc
-input.off = Sample input
+input.off - Sample input file

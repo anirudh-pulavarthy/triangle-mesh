@@ -6,10 +6,10 @@
 //
 
 #include <iostream>
-#include "TraingleList.hpp"
+#include "TriangleList.hpp"
 
 bool TriangleList::alreadyAdded(Triangle t) {
-    if ( arrList.size() <= 1 )
+    if ( arrList.size() < 1 )
         return false;
     
     auto itr = std::find(arrList.begin(), arrList.end(), t);
@@ -53,4 +53,23 @@ bool TriangleList::addTriangle(Triangle t) {
     
     arrList.push_back(t);
     return true;
+}
+
+void TriangleList::setVisited(const Triangle& t, bool val) {
+    for ( Triangle& itr : arrList ) {
+        if ( itr == t )
+        {
+            itr.visited = true;
+            return;
+        }
+    }
+}
+
+bool TriangleList::getVisited(const Triangle& t) {
+    for ( Triangle& itr : arrList ) {
+        if ( itr == t )
+            return itr.visited;
+    }
+    std::cout << "Triangle doesn't exist" << std::endl;
+    return false;
 }

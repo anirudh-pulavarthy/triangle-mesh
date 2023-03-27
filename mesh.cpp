@@ -55,6 +55,29 @@ bool Mesh::contains(const Triangle& tRef) {
 
 void Mesh::computeTwoConnectedComponent(const Triangle& tRef, TriangleList& list) {
     
+    // visit neighbours of tRef, fill them in list and update visited
+    visitNeighbors(tRef, list);
+    
+    // For every adjacent triangle, call the utility function
+    for ( Triangle& t : list )
+        tccUtil(t, list);
+    
+    // unset the value of visited
+    for ( Triangle& t : data ) t.visited = false;
+}
+
+void Mesh::tccUtil(Triangle& tRef, TriangleList &list) {
+    //std::cout << "tccUtil called for " << tRef << std::endl;
+    
+    if ( data.getVisited(tRef) ) return;
+    
+    visitNeighbors(tRef, list);
+    
+    for ( Triangle& t : list )
+        tccUtil(t, list);
+}
+
+void Mesh::visitNeighbors(const Triangle& tRef, TriangleList& list) {
     Edge e1(tRef.v1, tRef.v2),
         e2(tRef.v1, tRef.v3),
         e3(tRef.v2, tRef.v3);
@@ -63,18 +86,5 @@ void Mesh::computeTwoConnectedComponent(const Triangle& tRef, TriangleList& list
     findAdjacentTriangles(e2, list);
     findAdjacentTriangles(e3, list);
     
-    for ( Triangle& t : data)
-        tccUtil(t, list);
-    
-    for ( Triangle& t : data ) t.visited = false;
-}
-
-void Mesh::tccUtil(Triangle tRef, TriangleList &list) {
-    
-    if ( tRef.visited ) return;
-    
-    tRef.visited = true;
-    
-    for ( Triangle& t : list )
-        tccUtil(t, list);
+    data.setVisited(tRef, true);
 }

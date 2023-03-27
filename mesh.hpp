@@ -10,15 +10,15 @@
 
 #include <vector>
 #include "EdgeList.hpp"
-#include "TraingleList.hpp"
+#include "TriangleList.hpp"
 
 class Mesh {
 private:
     TriangleList data;
     
 private:
-    //void tccUtil(Edge e, TriangleList& list);
-    void tccUtil(Triangle t, TriangleList& list);
+    void tccUtil(Triangle& t, TriangleList& list);
+    void visitNeighbors(const Triangle& t, TriangleList& list);
     
 public:
     void computeTwoConnectedComponent(const Triangle& tRef, TriangleList& list);

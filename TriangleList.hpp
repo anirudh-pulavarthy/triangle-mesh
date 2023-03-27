@@ -11,7 +11,7 @@
 #include <vector>
 #include "Triangle.hpp"
 
-typdef std::vector<Triangle> TriangleArray;
+typedef std::vector<Triangle> TriangleArray;
 
 class TriangleList {
 private:
